@@ -2,6 +2,12 @@ output "vpc" {
   value       = ibm_is_vpc.vpc.id
 }
 
+locals {
+  zone  = "${var.region}-1"
+  zone2 = "${var.region}-2"
+  zone3 = "${var.region}-3"
+}
+
 resource "ibm_is_vpc" "vpc" {
   name                        = var.vpc_name
   resource_group              = data.ibm_resource_group.admins.id
